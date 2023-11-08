@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl3ggbjdhh0g7"]
+
+[ext_resource type="Script" path="res://interface_ui.gd" id="1_dn5u3"]
+[ext_resource type="FontFile" uid="uid://4328qpsulowv" path="res://Kurland_Font_0_30/Kurland.otf" id="2_o5xq6"]
+[ext_resource type="Texture2D" uid="uid://07j0gyh1hce0" path="res://Person.png" id="3_wmx38"]
+
+[node name="Interface UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dn5u3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.0156863, 0.0117647, 1)
+
+[node name="boxLayout" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 90.0
+offset_right = 1031.0
+offset_bottom = 378.0
+
+[node name="Label" type="Label" parent="boxLayout"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o5xq6")
+theme_override_font_sizes/font_size = 21
+text = "Character Movement"
+
+[node name="personagem" type="Sprite2D" parent="boxLayout"]
+position = Vector2(194, 189)
+scale = Vector2(1.02321, 1)
+texture = ExtResource("3_wmx38")
+
+[node name="BoxSpeed" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 394.0
+offset_right = 943.0
+offset_bottom = 444.0
+
+[node name="Label" type="Label" parent="BoxSpeed"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o5xq6")
+text = "Speed           "
+
+[node name="Button-" type="Button" parent="BoxSpeed"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "-"
+
+[node name="Button+" type="Button" parent="BoxSpeed"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+"
+
+[node name="Main" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 166.0
+offset_right = 713.0
+offset_bottom = 566.0
+
+[node name="GameName" type="Label" parent="Main"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o5xq6")
+theme_override_font_sizes/font_size = 27
+text = "Nome do jogo
+"
+
+[node name="MainConteiner" type="HBoxContainer" parent="Main"]
+custom_minimum_size = Vector2(500, 190)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+
+[node name="VConteiner" type="VBoxContainer" parent="Main/MainConteiner"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Play" type="Button" parent="Main/MainConteiner/VConteiner"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o5xq6")
+theme_override_font_sizes/font_size = 20
+text = "Jogar"
+flat = true
+
+[node name="Controls" type="Button" parent="Main/MainConteiner/VConteiner"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o5xq6")
+text = "Controles"
+flat = true
+
+[node name="Quit" type="Button" parent="Main/MainConteiner/VConteiner"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o5xq6")
+text = "Sair"
+flat = true

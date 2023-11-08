@@ -1,0 +1,175 @@
+[gd_scene load_steps=11 format=3 uid="uid://dagx40phrxdwk"]
+
+[ext_resource type="Script" path="res://cenas/interface_usuario.gd" id="1_ec0qr"]
+[ext_resource type="Texture2D" uid="uid://bu0lgxl3eqm62" path="res://sprite fundo UI.png" id="1_hdp1d"]
+[ext_resource type="Shader" path="res://cenas/interface_usuario.gdshader" id="2_aps2d"]
+[ext_resource type="FontFile" uid="uid://4328qpsulowv" path="res://Kurland_Font_0_30/Kurland.otf" id="2_jte1q"]
+[ext_resource type="SpriteFrames" uid="uid://cj2dbw222bvnk" path="res://cenas/RunPerson.tres" id="5_e5hi5"]
+[ext_resource type="Script" path="res://cenas/Points.gd" id="5_g4skq"]
+[ext_resource type="Script" path="res://cenas/Speed.gd" id="6_1828s"]
+[ext_resource type="Script" path="res://cenas/Force.gd" id="7_oybmu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eengh"]
+render_priority = 0
+shader = ExtResource("2_aps2d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu0yf"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+
+[node name="InterfaceUsuario" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ec0qr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_eengh")
+layout_mode = 0
+offset_left = -2895.0
+offset_top = -1036.0
+offset_right = 2352.0
+offset_bottom = 2715.0
+color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="Sprite2D" parent="."]
+position = Vector2(417, 363)
+scale = Vector2(0.519792, 0.544444)
+texture = ExtResource("1_hdp1d")
+
+[node name="GameName" type="Label" parent="Hud"]
+offset_left = -150.064
+offset_top = -213.061
+offset_right = 144.936
+offset_bottom = -158.061
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.603922, 0.203922, 0, 1)
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 49
+text = "Nome do jogo
+"
+
+[node name="Quit" type="Button" parent="Hud"]
+offset_left = 186.613
+offset_top = 229.592
+offset_right = 344.613
+offset_bottom = 335.592
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.631373, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_yu0yf")
+text = "Quit"
+flat = true
+
+[node name="Controls" type="Button" parent="Hud"]
+offset_left = -125.05
+offset_top = -23.8776
+offset_right = 128.95
+offset_bottom = 67.1224
+theme_override_colors/font_color = Color(0, 0.658824, 0.203922, 1)
+theme_override_font_sizes/font_size = 60
+text = "Controls
+"
+flat = true
+
+[node name="Resume" type="Button" parent="Hud"]
+offset_left = -121.0
+offset_top = -144.0
+offset_right = 119.0
+offset_bottom = -53.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Resume"
+flat = true
+
+[node name="Hud2" type="Sprite2D" parent="."]
+position = Vector2(918, 361)
+scale = Vector2(0.519792, 0.544444)
+texture = ExtResource("1_hdp1d")
+
+[node name="Label" type="Label" parent="Hud2"]
+offset_left = -175.07
+offset_top = -348.98
+offset_right = 202.93
+offset_bottom = -285.98
+scale = Vector2(1.01566, 1.31189)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 48
+text = "Menu de Upgrade
+"
+
+[node name="Points" type="Label" parent="Hud2"]
+offset_left = -150.06
+offset_top = 47.7552
+offset_right = 173.94
+offset_bottom = 117.755
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 59
+text = "Points:"
+script = ExtResource("5_g4skq")
+
+[node name="Speed" type="Label" parent="Hud2"]
+offset_left = -256.0
+offset_top = 189.0
+offset_right = 27.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 59
+text = "Speed:"
+script = ExtResource("6_1828s")
+
+[node name="ButtonMenosPontos" type="Button" parent="Hud2"]
+offset_left = 117.354
+offset_top = 181.837
+offset_right = 200.355
+offset_bottom = 258.837
+theme_override_font_sizes/font_size = 50
+text = "-"
+
+[node name="ButtonMaisPontos" type="Button" parent="Hud2"]
+offset_left = 246.252
+offset_top = 183.674
+offset_right = 330.252
+offset_bottom = 260.674
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[node name="Force" type="Label" parent="Hud2"]
+anchors_preset = -1
+anchor_left = 0.342
+anchor_top = 0.678
+anchor_right = 0.342
+anchor_bottom = 0.678
+offset_left = -914.435
+offset_top = -623.873
+offset_right = -675.435
+offset_bottom = -538.873
+theme_override_fonts/font = ExtResource("2_jte1q")
+theme_override_font_sizes/font_size = 59
+text = "Force:"
+script = ExtResource("7_oybmu")
+
+[node name="PlusForce" type="Button" parent="Hud2"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="RunPerson" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(919, 290)
+scale = Vector2(0.687462, 0.527321)
+sprite_frames = ExtResource("5_e5hi5")
+animation = &"Personagem"
+
+[connection signal="pressed" from="Hud/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Hud/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Hud/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Hud2/ButtonMenosPontos" to="." method="_on_button_menos_pontos_pressed"]
+[connection signal="pressed" from="Hud2/ButtonMaisPontos" to="." method="_on_button_mais_pontos_pressed"]
